@@ -1,0 +1,90 @@
+/* My Bookings Page Styles */
+.my-bookings {
+    padding: 2rem;
+  }
+  
+  .my-bookings .my-bookings-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+  
+  .my-bookings .my-bookings-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(to right, #4f46e5, #6366f1);
+    border-radius: 2px;
+  }
+  
+  .my-bookings .my-bookings-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .my-bookings .my-bookings-no-bookings {
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 12px;
+    color: #64748b;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+  }
+  
+  /* Skeleton loading styles */
+  .my-bookings .skeleton {
+    animation: skeleton-loading 1.5s infinite;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    border-radius: 8px;
+  }
+  
+  .my-bookings .my-bookings-skeleton-title {
+    height: 2.5rem;
+    width: 250px;
+    margin-bottom: 2rem;
+  }
+  
+  .my-bookings .my-bookings-skeleton-card {
+    height: 200px;
+    width: 100%;
+    border-radius: 12px;
+  }
+  
+  @keyframes skeleton-loading {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* Media queries */
+  @media (max-width: 1024px) {
+    .my-bookings {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .my-bookings .my-bookings-cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .my-bookings .my-bookings-title {
+      font-size: 1.75rem;
+    }
+  }

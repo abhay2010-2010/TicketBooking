@@ -1,0 +1,116 @@
+/* BookingCard Styles */
+.my-bookings .my-bookings-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .my-bookings .my-bookings-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #4f46e5, #6366f1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .my-bookings .my-bookings-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .my-bookings .my-bookings-card:hover::before {
+    opacity: 1;
+  }
+  
+  .my-bookings .my-bookings-card-header {
+    padding: 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .my-bookings .my-bookings-card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .my-bookings .my-bookings-card-date {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+  
+  .my-bookings .my-bookings-card-content {
+    padding: 1.25rem;
+    flex-grow: 1;
+  }
+  
+  .my-bookings .my-bookings-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .my-bookings .my-bookings-card-info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .my-bookings .my-bookings-card-label {
+    font-weight: 500;
+    color: #64748b;
+  }
+  
+  .my-bookings .my-bookings-card-value {
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .my-bookings .my-bookings-card-footer {
+    padding: 1.25rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .my-bookings .my-bookings-cancel-button {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .my-bookings .my-bookings-cancel-button:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .my-bookings .my-bookings-cancel-button:active {
+    transform: translateY(0);
+  }
+  
+  .my-bookings .my-bookings-cancel-button:disabled {
+    background-color: #f87171;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
