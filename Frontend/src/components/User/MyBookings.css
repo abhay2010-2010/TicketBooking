@@ -1,90 +1,189 @@
-/* My Bookings Page Styles */
-.my-bookings {
-    padding: 2rem;
+:root {
+  --primary-color: #007bff;
+  --background: #f4f7fa;
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(12px);
+  --border-radius: 16px;
+  --transition: 0.3s ease-in-out;
+  --text-color: #1a1a1a;
+}
+
+.booking-page {
+  padding: 2rem;
+  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.booking-page-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+/* Card-like Section */
+.booking-page-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.booking-page-section-title {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+/* Form Styling */
+.booking-form {
+  display: flex;
+  justify-content: center;
+}
+
+.booking-form-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.booking-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.booking-form-label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.booking-form-control {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.booking-form-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.booking-form-button:hover {
+  background-color: #0056b3;
+}
+
+/* Seat Grid Section */
+.train-car {
+  padding: 1rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Overlay Loader */
+.booking-page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-page-spinner {
+  border: 6px solid #e0e0e0;
+  border-top: 6px solid var(--primary-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .my-bookings .my-bookings-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 2rem;
-    position: relative;
-    padding-bottom: 0.75rem;
+}
+
+/* Skeleton Loaders */
+.booking-page-skeleton {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f7f7f7 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.booking-page-skeleton-title {
+  height: 30px;
+  width: 40%;
+  margin: 0 auto 2rem auto;
+}
+
+.booking-page-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.booking-page-skeleton-sidebar {
+  width: 25%;
+}
+
+.booking-page-skeleton-main {
+  width: 75%;
+}
+
+.booking-form-skeleton {
+  height: 45px;
+  width: 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
   }
-  
-  .my-bookings .my-bookings-title::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 4px;
-    background: linear-gradient(to right, #4f46e5, #6366f1);
-    border-radius: 2px;
+  100% {
+    background-position: 200% 0;
   }
-  
-  .my-bookings .my-bookings-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .booking-page-container {
+    flex-direction: column;
   }
-  
-  .my-bookings .my-bookings-no-bookings {
-    background: white;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 12px;
-    color: #64748b;
-    font-size: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e2e8f0;
-  }
-  
-  /* Skeleton loading styles */
-  .my-bookings .skeleton {
-    animation: skeleton-loading 1.5s infinite;
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    border-radius: 8px;
-  }
-  
-  .my-bookings .my-bookings-skeleton-title {
-    height: 2.5rem;
-    width: 250px;
-    margin-bottom: 2rem;
-  }
-  
-  .my-bookings .my-bookings-skeleton-card {
-    height: 200px;
+
+  .booking-page-skeleton-sidebar,
+  .booking-page-skeleton-main {
     width: 100%;
-    border-radius: 12px;
   }
-  
-  @keyframes skeleton-loading {
-    0% {
-      background-position: -200% 0;
-    }
-    100% {
-      background-position: 200% 0;
-    }
+
+  .booking-form-container {
+    max-width: 100%;
   }
-  
-  /* Media queries */
-  @media (max-width: 1024px) {
-    .my-bookings {
-      padding: 1.5rem;
-    }
+
+  .train-car {
+    padding: 1rem 0;
   }
-  
-  @media (max-width: 768px) {
-    .my-bookings .my-bookings-cards-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .my-bookings .my-bookings-title {
-      font-size: 1.75rem;
-    }
-  }
+}
